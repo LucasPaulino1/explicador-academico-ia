@@ -1,0 +1,4 @@
+# Impede acesso direto ao arquivo com a chave da API
+<Files "config.php">
+    Require all denied
+</Files>

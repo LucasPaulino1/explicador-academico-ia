@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #000000 0%, #21254b 100%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Formulário e Chat container */
+form, .container-ia {
+    background-color: #ffffff;
+    max-width: 500px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* O formulário do chat fica DENTRO do cartão: não ganha um segundo cartão */
+.container-ia form {
+    background: none;
+    max-width: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #555;
+}
+
+/* Espaçamento entre os campos do formulário de cadastro */
+form > div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 14px 15px;
+    background-color: #f0f2f5;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333;
+}
+
+input:focus-visible,
+button:focus-visible {
+    outline: 2px solid #21254b;
+    outline-offset: 2px;
+}
+
+/* Botão */
+button {
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #555;
+}
+
+/* Aceite dos termos: checkbox, texto e link na mesma linha */
+.termos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.termos input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.termos label {
+    display: inline;
+    margin: 0;
+    cursor: pointer;
+}
+
+.link-termos {
+    font-size: 14px;
+    font-weight: 500;
+    color: #21254b;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link-termos:hover {
+    color: #000;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-conteudo {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.fechar-modal {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fechar-modal:hover { color: #333; }
+
+/* Chat IA */
+.container-ia input[type="text"] {
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.sucesso {
+    color: #1a7f37;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.resposta {
+    background: #f0f2f5;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.resposta h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.resposta h4 {
+    margin: 16px 0 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.resposta p {
+    margin: 0 0 12px;
+}
+
+.resposta ul,
+.resposta ol {
+    margin: 0 0 12px;
+    padding-left: 22px;
+}
+
+.resposta li {
+    margin-bottom: 4px;
+}
+
+.container-ia code {
+    background: #e2e5ea;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.modelos {
+    padding-left: 22px;
+}
+
+.modelos li {
+    margin-bottom: 6px;
+}
+
+.resposta > :last-child {
+    margin-bottom: 0;
+}
+
+/* Mensagens de erro (chat e página de cadastro) */
+.erro-ia {
+    background: #fdecea;
+    color: #8a1c14;
+}
+
+.erro-ia p {
+    margin: 0;
+}
+
+.erros {
+    color: #8a1c14;
+    padding-left: 22px;
+}
+
+.sair {
+    margin: 20px 0 0;
+    font-size: 14px;
+    text-align: right;
+}
+
+.container-ia a {
+    color: #21254b;
+}
+
+button:disabled {
+    background-color: #777;
+    cursor: wait;
+}
+
+.nota-modelo {
+    font-size: 13px;
+    color: #666;
+}

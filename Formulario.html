@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form action="index.php" method="post" novalidate>
+        <h2>Formulário de Cadastro</h2>
+        <h3>Preencha os campos abaixo para criar sua conta.</h3>
+
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="usuario_nome" required>
+        </div>
+
+        <div>
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" id="sobrenome" name="usuario_sobrenome" required>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="usuario_email" required>
+        </div>
+
+        <div>
+            <label for="data_nasc">Data de Nascimento:</label>
+            <input type="date" id="data_nasc" name="usuario_data_nascimento" required>
+        </div>
+
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="usuario_senha" required>
+        </div>
+
+        <div>
+            <label for="repetir_senha">Repetir Senha:</label>
+            <input type="password" id="repetir_senha" name="usuario_repetir_senha" required>
+        </div>
+
+        <div class="termos">
+            <input type="checkbox" id="termos" name="aceitou_termos" required>
+            <label for="termos">Eu li e aceito os</label>
+            <span><a href="#" id="abrir-termos" class="link-termos">termos de serviço</a>.</span>
+        </div>
+
+        <div>
+            <button type="submit">Enviar Cadastro</button>
+        </div>
+    </form>
+
+    <!-- Modal fora do form -->
+    <div id="modal-termos" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" id="fechar-termos">&times;</span>
+            <h2>Termos de Serviço</h2>
+            <p><strong>Última atualização:</strong> 27 de outubro de 2025</p>
+            <p>Bem-vindo! Ao criar uma conta, você concorda com os seguintes termos e condições:</p>
+            <ol>
+                <li>Você concorda em fornecer informações verdadeiras, precisas e completas.</li>
+                <li>Você é responsável por manter a confidencialidade de sua senha e conta.</li>
+                <li>Você concorda em não usar o serviço para qualquer finalidade ilegal.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("modal-termos");
+        var btnAbrir = document.getElementById("abrir-termos");
+        var btnFechar = document.getElementById("fechar-termos");
+
+        btnAbrir.onclick = function(event) {
+            event.preventDefault();
+            modal.style.display = "block";
+        };
+        btnFechar.onclick = function() { modal.style.display = "none"; };
+        window.onclick = function(event) {
+            if (event.target == modal) modal.style.display = "none";
+        };
+        document.onkeydown = function(event) {
+            if (event.key === "Escape") modal.style.display = "none";
+        };
+
+        // Volta de uma página de erro: preenche de novo os campos (menos as senhas)
+        try {
+            var rascunho = JSON.parse(sessionStorage.getItem("cadastroRascunho") || "null");
+            sessionStorage.removeItem("cadastroRascunho");
+            if (rascunho) {
+                ["nome", "sobrenome", "email", "data_nasc"].forEach(function(id) {
+                    if (rascunho[id]) document.getElementById(id).value = rascunho[id];
+                });
+            }
+        } catch (e) {}
+    </script>
+</body>
+</html>
