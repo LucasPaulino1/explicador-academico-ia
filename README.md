@@ -6,6 +6,20 @@ Aplicação web desenvolvida em PHP que utiliza a API do Google Gemini para expl
 
 Facilitar a compreensão de conceitos acadêmicos por meio da integração entre desenvolvimento web e inteligência artificial generativa.
 
+## Demonstração do projeto
+
+### Tela de cadastro
+
+Interface inicial com formulário de cadastro demonstrativo.
+
+![Tela de cadastro](screenshots/Explicador-Tela_inicial.png)
+
+### Explicador Acadêmico com IA
+
+Exemplo de consulta sobre inteligência artificial generativa, com explicação produzida pela API Google Gemini.
+
+![Explicador Acadêmico funcionando](screenshots/Explicador-rodando.png)
+
 ## Funcionalidades
 
 - Formulário de cadastro demonstrativo com validação de dados.
@@ -27,6 +41,18 @@ Facilitar a compreensão de conceitos acadêmicos por meio da integração entre
 - cURL
 - XAMPP / Apache para desenvolvimento local
 - Git e GitHub
+
+## Arquitetura e funcionamento
+
+A aplicação utiliza uma arquitetura web com Back-end em PHP e integração com a API Google Gemini.
+
+1. O usuário informa um termo acadêmico pela interface web.
+2. O Back-end PHP recebe e processa a solicitação.
+3. A aplicação realiza uma requisição à API Google Gemini utilizando cURL.
+4. O modelo de inteligência artificial gera uma explicação sobre o termo informado.
+5. O PHP processa a resposta e apresenta o resultado ao usuário.
+
+A integração com a IA é realizada no servidor, permitindo manter as configurações sensíveis fora dos arquivos públicos do repositório.
 
 ## Como executar
 
